@@ -1,19 +1,10 @@
-MIT License
+This software is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
 
-Copyright (c) 2025 Sondre Sæther Bolland
+You are free to share and adapt the material for any non-commercial purpose, as long as appropriate credit is given and a link to the license is provided.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the “Software”), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, subject to the following conditions:
+Full license: https://creativecommons.org/licenses/by-nc/4.0/
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-**Additional Condition**:
-Use of this software must not violate the terms of service or user agreements
-of any third-party APIs it interacts with, including but not limited to:
+Use of this software must also comply with the terms of any third-party APIs it interacts with, including (but not limited to):
 - [Spotify Web API Terms of Use](https://developer.spotify.com/terms)
 - [setlist.fm API Terms of Service](https://www.setlist.fm/help/terms)
 
