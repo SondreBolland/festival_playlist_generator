@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+from pathlib import Path
 from time import sleep
 from dotenv import load_dotenv
 import os
@@ -12,7 +13,7 @@ load_dotenv()
 SETLISTFM_API_KEY = os.getenv("SETLISTFM_API_KEY")
 USER_AGENT = os.getenv("USER_AGENT")
 
-CACHE_DIR = "setlist_cache"
+CACHE_DIR = Path("setlist_api" ,"setlist_cache")
 BASE_URL = "https://api.setlist.fm/rest/1.0"
 
 HEADERS = {
@@ -21,10 +22,14 @@ HEADERS = {
     "User-Agent": USER_AGENT,
 }
 
+API_CALL_DELAY = 3 # seconds
+
 def ensure_cache_dir():
+    """Create the cache directory if it doesn't exist."""
     os.makedirs(CACHE_DIR, exist_ok=True)
 
 def load_cached_setlists(mbid):
+    """Load cached setlists for an artist using their MBID."""
     path = os.path.join(CACHE_DIR, f"{mbid}.json")
     if os.path.exists(path):
         with open(path, "r", encoding="utf-8") as f:
@@ -32,11 +37,13 @@ def load_cached_setlists(mbid):
     return None
 
 def save_cached_setlists(artist, data):
+    """Save setlist data to a local JSON file for caching."""
     path = os.path.join(CACHE_DIR, f"{artist}.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
 def fetch_setlists_from_api(mbid, limit=3):
+    """Fetch recent setlists from the Setlist.fm API for a given artist MBID."""
     url = f"{BASE_URL}/artist/{mbid}/setlists"
     params = {"p": 1}
     extracted_setlists = []
@@ -45,6 +52,8 @@ def fetch_setlists_from_api(mbid, limit=3):
         response = requests.get(url, headers=HEADERS, params=params)
         if response.status_code != 200:
             raise Exception(f"API error: {response.status_code}, {response.text}")
+        
+        sleep(API_CALL_DELAY)  # Respect API rate limit
         
         page_data = response.json()
         page_setlists = page_data.get("setlist", [])
@@ -81,25 +90,26 @@ def fetch_setlists_from_api(mbid, limit=3):
             break
         params["p"] += 1
 
-        sleep(2)  # Respect API rate limit
-
     return extracted_setlists[:limit]
 
-
 def get_setlists(artist, limit=3):
-    # Fetch the artist's mbid
+    """Get recent setlists for an artist, using cache if it has enough entries."""
+    print(f"Fetching setlists for {artist}.")
+    
     mbid = artist_mbid[artist]
     
     ensure_cache_dir()
     cached = load_cached_setlists(artist)
-    if cached:
-        return cached
+    
+    if cached and len(cached) >= limit:
+        return cached[:limit]
 
     fresh = fetch_setlists_from_api(mbid, limit=limit)
     save_cached_setlists(artist, fresh)
     return fresh
 
+
 if __name__ == "__main__":
-    for artist in artist_mbid.keys():
-        setlists = get_setlists(artist)
-        print(f"Fetched setlists for {artist}")
+    example_artist = 'Muse'
+    get_setlists(example_artist)
+    # Now check if the artist's setlists are stored in setlist_api/setlist_cache/<artist>

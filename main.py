@@ -1,12 +1,17 @@
 from pathlib import Path
 from playlist_generator.generate_playlist import generate_playlists
 from spotify_api.spotify_playlist_creator import create_spotify_playlist_from_songs
+from setlist_api.mbids import artist_mbid
+from setlist_api.get_setlists import get_setlists
+
 
 # === Configuration variables ===
 # List of artist names (must match JSON filenames)
-artists = ["Muse", "Avenged Sevenfold", "Green Day"]        
+artists = ["Muse", "Avenged Sevenfold", "Green Day", "Megadeth", "Dream Theater", "Dimmu Borgir", "Kaizers Orchestra"]        
 # Number of songs per artist if not using unique songs  
 songs_per_artist = 15
+# Number of concerts to fetch playlists from
+n_setlists_per_artist = 3
 # True: use all unique songs, False: use the most frequently played songs up to n=songs_per_artist                                    
 use_unique_songs = False
 # Name of the Spotify playlist
@@ -15,6 +20,12 @@ playlist_name = "Tons of Rock 2025"
 one_big_playlist = True
 
 def main():
+    # Get all artists' setlists
+    for artist in artists:
+        if artist not in artist_mbid.keys():
+            print(f"The mbid for {artist} is missing. Go to https://musicbrainz.org to find it in the {artist}'s page url.")
+        get_setlists(artist, n_setlists_per_artist)
+    
     all_songs = []
 
     for artist in artists:
