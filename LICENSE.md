@@ -15,7 +15,7 @@ copies or substantial portions of the Software.
 Use of this software must not violate the terms of service or user agreements
 of any third-party APIs it interacts with, including but not limited to:
 - [Spotify Web API Terms of Use](https://developer.spotify.com/terms)
-- [setlist.fm API Terms of Service](https://api.setlist.fm/docs/1.0/index.html)
+- [setlist.fm API Terms of Service](https://www.setlist.fm/help/terms)
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
