@@ -110,9 +110,10 @@ Edit the variables at the top of `main.py`:
 ```python
 artists = ["Muse", "Avenged Sevenfold", "Green Day"]
 songs_per_artist = 15
+n_setlists_per_artist = 3             # Number of concerts to fetch playlists from per artist
 use_unique_songs = False              # Use only most frequent songs
 playlist_name = "Tons of Rock 2025"
-one_big_playlist = True              # Set to False for one playlist per artist
+one_big_playlist = True               # Set to False for one playlist per artist
 ```
 
 ---
