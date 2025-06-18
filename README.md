@@ -118,7 +118,7 @@ one_big_playlist = True               # Set to False for one playlist per artist
 
 ---
 
-## ▶Run the app
+## Run the app
 
 Once everything is configured:
 
