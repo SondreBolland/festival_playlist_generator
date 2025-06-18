@@ -1,7 +1,7 @@
 # Festival Playlist Generator
-Prepare for a festival or concert(s) by listening to songs the artist is likely to play. This application creates playlists based on artists' recent setlists.
+Get ready for your next festival or concert by listening to the songs your favorite artists are most likely to perform. This app helps you create Spotify playlists based on their most recent setlists.
 
-Generate Spotify playlists for upcoming festivals based on actual setlists from [setlist.fm](https://www.setlist.fm) using the [Spotify Web API](https://developer.spotify.com/). You can create a single combined playlist or one playlist per artist, using either their most frequently played songs or all unique songs played recently.
+Using actual data from [setlist.fm](https://www.setlist.fm) and the [Spotify Web API](https://developer.spotify.com/), you can generate playlists in two ways: either a single combined playlist or one per artist. Choose to include the most frequently played songs or all unique songs from their latest shows.
 
 ---
 
