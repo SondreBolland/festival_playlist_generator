@@ -56,13 +56,11 @@ SPOTIPY_REDIRECT_URI=http://127.0.0.1:8888/callback
 
 1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/).
 2. Create a new app.
-3. Copy the **Client ID** and **Client Secret** into your `.env` file.
-4. Under **Edit Settings**, add this redirect URI:
-
-   ```
-   http://127.0.0.1:8888/callback
-   ```
-5. Save your changes.
+      - **App name**: Whatever you want
+      - **App description**: Whatever you want
+      - **Redirect URIs**: `http://127.0.0.1:8888/callback` unless you have something more fancy
+      - **Which API/SDKs are you planning to use?**: You only need `Web API`
+4. Copy the **Client ID** and **Client Secret** into your `.env` file.
 
 ---
 
