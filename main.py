@@ -7,10 +7,17 @@ from setlist_api.get_setlists import get_setlists
 
 # === Configuration variables ===
 # List of artist names (must match JSON filenames)
-artists = ["Muse", "Avenged Sevenfold", "Green Day", "Megadeth", "Dream Theater", "Dimmu Borgir", "Kaizers Orchestra"]        
+artists = ["Muse", 
+           "Avenged Sevenfold", 
+           "Green Day", 
+           "Megadeth", 
+           "Dream Theater", 
+           "Dimmu Borgir", 
+           "Kaizers Orchestra"
+        ]        
 # Number of songs per artist if not using unique songs  
 songs_per_artist = 15
-# Number of concerts to fetch playlists from
+# Number of concerts to fetch playlists from per artist
 n_setlists_per_artist = 3
 # True: use all unique songs, False: use the most frequently played songs up to n=songs_per_artist                                    
 use_unique_songs = False
