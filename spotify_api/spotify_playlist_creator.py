@@ -33,3 +33,9 @@ def create_spotify_playlist_from_songs(playlist_name, song_titles, artist):
     add_tracks_to_playlist(sp, playlist_id, track_ids)
 
     print(f"Playlist '{playlist_name}' created with {len(track_ids)} tracks!")
+
+
+if __name__ == "__main__":
+    # Example
+    sp = get_spotify_client()
+    search_track_id(sp, 'Psycho', 'Muse')
