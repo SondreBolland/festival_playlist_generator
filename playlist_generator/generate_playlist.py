@@ -14,7 +14,7 @@ def get_most_common_songs(setlists, limit=20):
         all_songs.extend(setlist["songs"])
     counter = Counter(all_songs)
     most_common = [song for song, _ in counter.most_common(limit)]
-    return most_common
+    return list(set(most_common))
 
 def get_all_unique_songs(setlists):
     """Return a list of all unique songs from all setlists."""

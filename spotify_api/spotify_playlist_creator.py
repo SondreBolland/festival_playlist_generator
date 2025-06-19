@@ -17,7 +17,7 @@ def add_tracks_to_playlist(sp, playlist_id, track_ids):
     for i in range(0, len(track_ids), CHUNK):
         sp.playlist_add_items(playlist_id, track_ids[i:i+CHUNK])
 
-def create_spotify_playlist_from_songs(playlist_name, song_titles, artist=None):
+def create_spotify_playlist_from_songs(playlist_name, song_titles, artist):
     sp = get_spotify_client()
     user_id = sp.me()['id']
 
