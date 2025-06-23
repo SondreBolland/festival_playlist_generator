@@ -13,7 +13,9 @@ artists = ["Muse",
            "Megadeth", 
            "Dream Theater", 
            "Dimmu Borgir", 
-           "Kaizers Orchestra"
+           "Kaizers Orchestra",
+           "Lorna Shore",
+           "Fixation"
         ]        
 # Number of songs per artist if not using unique songs  
 songs_per_artist = 15
@@ -55,7 +57,7 @@ def main():
             create_spotify_playlist_from_songs(
                 playlist_name=f"{playlist_name} - {artist}",
                 song_titles=selected_songs,
-                artist=artist
+                artists=[artist]
             )
 
     if one_big_playlist and all_songs:
@@ -67,7 +69,7 @@ def main():
         create_spotify_playlist_from_songs(
             playlist_name=playlist_name,
             song_titles=combined_songs,
-            artist=None
+            artists=artists
         )
 
 if __name__ == "__main__":

@@ -5,5 +5,7 @@ artist_mbid = {
     "Kaizers Orchestra": "2c3bac0a-5158-442f-b50b-056aae52138c",
     "Dimmu Borgir": "17167af8-c1da-45cc-bba2-9d23f068b7a3",
     "Dream Theater": "28503ab7-8bf2-4666-a7bd-2644bfc7cb1d",
-    "Megadeth": "a9044915-8be3-4c7e-b11f-9e2d2ea0a91e"
+    "Megadeth": "a9044915-8be3-4c7e-b11f-9e2d2ea0a91e",
+    "Lorna Shore": "e86fc1f5-d632-44b2-8aea-38f83aadffe8",
+    "Fixation": "3e3baa65-814f-4849-9f82-8f4263b40ce8"
 }
